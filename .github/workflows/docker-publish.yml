@@ -32,7 +32,7 @@ jobs:
       - name: Download WorkBuddy.deb
         run: ./workbuddyDownload.sh
 
-      - name: Build and push Docker image
+      - name: Build and Push Docker image
         uses: docker/build-push-action@v7.4.0
         with:
           context: .

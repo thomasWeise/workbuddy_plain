@@ -46,8 +46,6 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
 	chmod 4755 /opt/WorkBuddy/chrome-sandbox &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Enabling the Chrome Sandbox used by WorkBuddy (3)." &&\
 	echo "kernel.unprivileged_userns_clone=1" | tee /etc/sysctl.d/99-userns.conf &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Doing more things that are needed." &&\
-	sysctl --system &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating the plain user." &&\
     useradd -m -s /bin/bash user &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): All is done, we built the image workbuddy-isolated-plain."
