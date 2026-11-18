@@ -1,0 +1,9 @@
+.git
+node_modules
+*.md
+.env
+.sh
+LICENSE
+.yml
+.github
+.gitignore
