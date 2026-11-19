@@ -21,14 +21,12 @@ jobs:
           cp Dockerfile "$website/"
           cp LICENSE "$website/"
           cp *.sh "$website/"
-          cp *.css "$website/"
 
       - name: Convert README to HTML
         uses: jaywcjlove/markdown-to-html-cli@v5.0.4
         with:
           source: README.md
           output: /tmp/website/index.html
-          style: bz.css
 
       - name: deploy website
         uses: JamesIves/github-pages-deploy-action@v4.8.0
