@@ -28,7 +28,7 @@ jobs:
         with:
           source: README.md
           output: /tmp/website/index.html
-          style: "https://thomasweise.github.io/workbuddy_plain/bz.css"
+          style: bz.css
 
       - name: deploy website
         uses: JamesIves/github-pages-deploy-action@v4.8.0
