@@ -30,7 +30,7 @@ jobs:
           images: ghcr.io/${{ github.repository }}
 
       - name: Download WorkBuddy.deb
-        run: ./workbuddyDownload.sh
+        run: ./workbuddy_download.sh
 
       - name: Build and Push Docker image
         uses: docker/build-push-action@v7.4.0

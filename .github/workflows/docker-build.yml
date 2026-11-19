@@ -14,6 +14,26 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v7.0.1
 
+      - name: assemble the website
+        run: |
+          website="/tmp/website"
+          mkdir -p $website
+          cp Dockerfile "$website/"
+          cp LICENSE "$website/"
+          cp *.sh "$website/"
+
+      - name: deploy website
+        uses: JamesIves/github-pages-deploy-action@v4.8.0
+        with:
+          branch: gh-pages
+          folder: /tmp/website/
+          single-commit: true
+
+      - name: clear the website
+        run: |
+          website="/tmp/website"
+          rm -rf "$website"
+
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v4.8.0
         with:
@@ -22,7 +42,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download WorkBuddy.deb
-        run: ./workbuddyDownload.sh
+        run: ./workbuddy_download.sh
 
       - name: Build Docker image without Pushing
         uses: docker/build-push-action@v7.4.0
