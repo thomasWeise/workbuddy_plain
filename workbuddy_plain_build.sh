@@ -26,8 +26,8 @@ else
 fi
 
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): We delete any potentially existing old images."
-docker image rm workbuddy-plain || true
-docker image rm workbuddy-plain || true
+docker image rm workbuddy_plain || true
+docker image rm workbuddy_plain || true
 
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now we build the plain image."
 docker build --progress=plain -t workbuddy_plain .

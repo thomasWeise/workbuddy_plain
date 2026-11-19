@@ -1,9 +1,6 @@
 # syntax=docker/dockerfile:1.4
 FROM ubuntu:26.10
 
-# Make the workbuddy 'deb' package available.
-#COPY WorkBuddy.deb /tmp/
-
 RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Welcome to building the plain WorkBuddy Image." &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): First we update the apt-cache." &&\
@@ -48,7 +45,7 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
 	echo "kernel.unprivileged_userns_clone=1" | tee /etc/sysctl.d/99-userns.conf &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating the plain user." &&\
     useradd -m -s /bin/bash user &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): All is done, we built the image workbuddy-isolated-plain."
+    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): All is done, we built the image workbuddy_plain."
 
 USER user
 
