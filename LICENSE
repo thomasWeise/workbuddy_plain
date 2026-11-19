@@ -1,3 +1,11 @@
+This license only here applies to the scripts in this package.
+It obviously does NOT apply to the WorkBuddy software, Docker itself, or
+anything else contained in the Docker images.
+These are obviously under the copyright of their copyright holders.
+If you feel that this repository or image infringes any of your property
+rights, please contact me.
+
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
