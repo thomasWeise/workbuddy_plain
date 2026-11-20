@@ -4,6 +4,7 @@
 This is a plain [Docker](https://www.docker.com) image of the [WorkBuddy](https://www.workbuddy.cn) agent.
 It is based on an [Ubuntu](https://ubuntu.com) [Linux](https://thomasweise.github.io/tags/linux) image.
 It is intended for use in particular with [rootless Docker](https://thomasweise.github.io/posts/2026-11-17-installing-rootless-docker-on-ubuntu-in-china) installations.
+You can find the image at [`ghcr.io/thomasweise/workbuddy_plain`](https://github.com/thomasWeise/workbuddy_plain/pkgs/container/workbuddy_plain).
 
 **Notice:** I am totally new to using AI tools.
 Therefore, this is really a very very experimental setup.
@@ -28,8 +29,8 @@ This script will take three optional parameters:
   The default setting just uses a temporary folder, where nothing important should be in.
 - The version of the image to run, by default `"latest"`
 - The mode of the image to use.
-  By default, this uses the image `ghcr.io/thomasweise/workbuddy_plain` from the GitHub package repository.
-  If you set this `"local"`, then you can also run a Docker image that you built locally using, e.g., the scripts [`workbuddy_plain_build.sh`](https://thomasweise.github.io/workbuddy_plain/workbuddy_plain_build.sh) and our [`Dockerfile.sh`](https://thomasweise.github.io/workbuddy_plain/Dockerfile).
+  By default, this uses the image [`ghcr.io/thomasweise/workbuddy_plain`](https://github.com/thomasWeise/workbuddy_plain/pkgs/container/workbuddy_plain) from the GitHub package repository.
+  If you set this to `"local"`, then you can also run a Docker image that you built locally using, e.g., the scripts [`workbuddy_plain_build.sh`](https://thomasweise.github.io/workbuddy_plain/workbuddy_plain_build.sh) and our [`Dockerfile.sh`](https://thomasweise.github.io/workbuddy_plain/Dockerfile).
 
 
 ## 2.2. Run it by Hand from the Shell
