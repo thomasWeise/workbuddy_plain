@@ -1,6 +1,10 @@
 # syntax=docker/dockerfile:1.4
 FROM ubuntu:26.10
 
+# Set locale to C.UTF-8
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
 RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Welcome to building the plain WorkBuddy Image." &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): First we update the apt-cache." &&\
