@@ -22,7 +22,10 @@ After that, WorkBuddy can be used.
 Under Ubuntu Linux, you can run it with script [`workbuddy_plain_run.sh`](https://thomasweise.github.io/workbuddy_plain/workbuddy_plain_run.sh).
 This script will take three optional parameters:
 
-- The directory to mount into WorkBuddy, by default `"."`
+- The directory to mount into WorkBuddy, by default `"/tmp/workbuddy"`.
+  This folder will be created if it does not exist.
+  You can point this to some folder with data in it that you want to share.
+  The default setting just uses a temporary folder, where nothing important should be in.
 - The version of the image to run, by default `"latest"`
 - The mode of the image to use.
   By default, this uses the image `ghcr.io/thomasweise/workbuddy_plain` from the GitHub package repository.

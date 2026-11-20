@@ -35,10 +35,11 @@ fi
 if [ -n "$sharedDir" ]; then
   echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Mounting provided '$sharedDir' into WorkBuddy."
 else
-  sharedDir="."
+  sharedDir="/tmp/workbuddy"
   echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Mounting current directory '$sharedDir' into WorkBuddy."
 fi
 sharedDir="$(realpath "$sharedDir")"
+mkdir -p "$sharedDir"
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): The fully expanded shared directory is '$sharedDir'."
 
 image="$image:$version"
