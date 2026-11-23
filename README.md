@@ -30,14 +30,11 @@ I cannot guarantee that it will work.
 
 ## 2. Run the Image
 You can either run this image via the provided script or manually.
-Either way, the WorkBuddy login window will pop up.
-It would provide you with a link to copy into your browser.
-Then, you can authenticate/login via your browser.
-After that, WorkBuddy can be used.
-
+Either way, after starting the container, you can log in as described in [Section&nbsp;3.1](#31-logging-in).
+After that, you can use WorkBuddy as discussed in [Section&nbsp;3.2.](#32-using-workbuddy).
 
 ### 2.1. Run it via provided Script
-Under Ubuntu Linux, you can run it with script [`workbuddy_plain_run.sh`](https://thomasweise.github.io/workbuddy_plain/workbuddy_plain_run.sh).
+Under Ubuntu Linux, you can run the container with script [`workbuddy_plain_run.sh`](https://thomasweise.github.io/workbuddy_plain/workbuddy_plain_run.sh).
 If the container image is not yet downloaded to your machine, this script will automatically download it.
 (If your internet connection is unstable, this may take a few attempts, because the image is not small.)
 This script will take three optional parameters:
@@ -57,6 +54,7 @@ This script will take three optional parameters:
 
 ## 2.2. Run it by Hand from the Shell
 Alternatively, you can run the image by hand.
+This will also download the image if it is not downloaded yet.
 
 Notice that in order to run the image properly, you need to first set `xhost +local:docker` on your system.
 This is needed so that WorkBuddy can access your screen.
