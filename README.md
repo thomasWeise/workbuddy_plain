@@ -65,32 +65,40 @@ After you have started the container as described above, a WorkBuddy window will
 First, you need to log in.
 Ideally, you have a WeChat account already, which makes this very easy:
 
-![The login screen.](https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_1.png)
+<img alt="The login screen." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_1.png" style="width:50%;border:2px solid black;border-radius:8px" />
+
 You click "Sign in" in the login screen.
 
-![Copy link.](https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_2.png)
+<img alt="Copy link." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_2.png" style="width:50%;border:2px solid black;border-radius:8px" />
+
 Then you can copy a login link.
 
-![Copy link.](https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_3.png)
+<img alt="Copy link." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_3.png" style="width:50%;border:2px solid black;border-radius:8px" />
+
 You click "Copy Login Link".
 
-![Paste login link.](https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_4.png)
+<img alt="Paste login link." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_4.png" style="width:50%;border:2px solid black;border-radius:8px" />
+
 You can paste login link in your browser and follow the instructions.
 
-![Log in.](https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_5.png)
+<img alt="Log in." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_5.png" style="width:50%;border:2px solid black;border-radius:8px" />
+
 This gets you logged in.
 
 
 ### 3.2. Using WorkBuddy
 Now you can now use WorkBuddy.
 
-![Example Step 1.](https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_1.png)
+<img alt="Example Step 1." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_1.png" style="width:50%;border:2px solid black;border-radius:8px" />
+
 Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the shared folder, and set all permissions to the generated files so that I can edit them.
 
-![Example, Step 2.](https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_2.png)
+<img alt="Example, Step 2." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_2.png" style="width:50%;border:2px solid black;border-radius:8px" />
+
 This indeed succeeds.
 
-![Example, Step 3.](https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png)
+<img alt="Example, Step 3." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" />
+
 And the files appear indeed in the shared folder.
 
 
