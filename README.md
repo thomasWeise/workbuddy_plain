@@ -38,6 +38,8 @@ After that, WorkBuddy can be used.
 
 ### 2.1. Run it via provided Script
 Under Ubuntu Linux, you can run it with script [`workbuddy_plain_run.sh`](https://thomasweise.github.io/workbuddy_plain/workbuddy_plain_run.sh).
+If the container image is not yet downloaded to your machine, this script will automatically download it.
+(If your internet connection is unstable, this may take a few attempts, because the image is not small.)
 This script will take three optional parameters:
 
 - The directory to mount into WorkBuddy, by default `"/tmp/workbuddy"`.
