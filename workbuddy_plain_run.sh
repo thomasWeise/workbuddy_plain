@@ -36,11 +36,21 @@ if [ -n "$sharedDir" ]; then
   echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Mounting provided '$sharedDir' into WorkBuddy."
 else
   sharedDir="/tmp/workbuddy"
-  echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Mounting current directory '$sharedDir' into WorkBuddy."
+  echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Mounting directory '$sharedDir' into WorkBuddy."
 fi
+
 sharedDir="$(realpath "$sharedDir")"
-mkdir -p "$sharedDir"
-echo "$(date +'%0Y-%0m-%0d %0R:%0S'): The fully expanded shared directory is '$sharedDir'."
+if [ -d "$sharedDir" ]; then
+  echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Directory '$sharedDir' exists."
+  echo "Did you make sure that the container will have write permissions?"
+  echo "You could call 'chmod 777 \"$sharedDir\"' to ensure that."
+else
+  echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Directory '$sharedDir' does not exist, creating it."
+  mkdir -p "$sharedDir"
+  echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Setting its permissions to 777."
+  chmod 777 "$sharedDir"
+  echo "$(date +'%0Y-%0m-%0d %0R:%0S'): The shared directory now is created and has full permissions."
+fi
 
 image="$image:$version"
 

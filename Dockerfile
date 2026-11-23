@@ -15,11 +15,14 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
     apt-get -y --with-new-pkgs --no-install-recommends upgrade &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now installing all packages required for WorkBuddy." &&\
 	apt-get install -y --fix-missing  \
+        dbus \
+        dbus-x11 \
         fonts-dejavu-core \
         fonts-dejavu-extra \
         fonts-noto-cjk \
 		fuse \
 		libasound2t64 \
+        libcanberra-gtk3-module \
 		libgbm1 \
 		libdrm2 \
 		libfuse2 \
@@ -37,6 +40,8 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
     apt-get -y clean &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Deleting useless cached files." &&\
 	rm -rf /var/cache/apt/archives/ &&\
+    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating dbus directory." &&\
+    mkdir -p /var/run/dbus &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now updating fonts cache, so that WorkBuddy finds the Chinese fonts." &&\
     fc-cache -fv &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now installing WorkBuddy." &&\
@@ -49,10 +54,14 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
 	echo "kernel.unprivileged_userns_clone=1" | tee /etc/sysctl.d/99-userns.conf &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating the plain user." &&\
     useradd -m -s /bin/bash user &&\
+    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating the dbus directory." &&\
+    mkdir -p "/run/user/$(id -u user)" &&\
+    chown user "/run/user/$(id -u user)" && \
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): All is done, we built the image workbuddy_plain."
 
-USER user
-
 ENV DISPLAY=:0
+#ENV DBUS_SYSTEM_BUS_ADDRESS="unix:path=/var/run/dbus/system_bus_socket"
 
-CMD ["/opt/WorkBuddy/workbuddy"]
+CMD ["sh", "-c", "dbus-daemon --system --fork && su user -c 'dbus-run-session -- /opt/WorkBuddy/workbuddy'" ]
+#"'eval $(dbus-launch --sh-syntax)' && echo 'xxx'."]
+#"/opt/WorkBuddy/workbuddy"]
