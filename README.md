@@ -31,7 +31,7 @@ I cannot guarantee that it will work.
 ## 2. Run the Image
 You can either run this image via the provided script or manually.
 Either way, after starting the container, you can log in as described in [Section&nbsp;3.1](#31-logging-in).
-After that, you can use WorkBuddy as discussed in [Section&nbsp;3.2.](#32-using-workbuddy).
+After that, you can use WorkBuddy as discussed in [Section&nbsp;3.2](#32-using-workbuddy).
 
 ### 2.1. Run it via provided Script
 Under Ubuntu Linux, you can run the container with script [`workbuddy_plain_run.sh`](https://thomasweise.github.io/workbuddy_plain/workbuddy_plain_run.sh).
