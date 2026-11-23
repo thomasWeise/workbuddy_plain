@@ -3,10 +3,25 @@
 # A plain WorkBuddy Docker image.
 
 ## 1. Introduction
-This is a plain [Docker](https://www.docker.com) image of the [WorkBuddy](https://www.workbuddy.cn) agent.
-It is based on an [Ubuntu](https://ubuntu.com) [Linux](https://thomasweise.github.io/tags/linux) image.
-It is intended for use in particular with [rootless Docker](https://thomasweise.github.io/posts/2026-11-17-installing-rootless-docker-on-ubuntu-in-china) installations.
+This is a plain [Docker](https://www.docker.com) image of the [WorkBuddy](https://www.workbuddy.cn) agent based on [Ubuntu](https://ubuntu.com) [Linux](https://thomasweise.github.io/tags/linux).
 You can find the image at [`ghcr.io/thomasweise/workbuddy_plain`](https://github.com/thomasWeise/workbuddy_plain/pkgs/container/workbuddy_plain).
+
+WorkBuddy normally runs in a Chrome Sandbox. 
+However, here we put it *additionally* into a Docker container.
+So it runs in a sandbox inside a container.
+
+This has two advantages:
+
+1. We can mount a directory into the container to share data.
+   We also need to allow WorkBuddy to access the screen.
+   However, apart from that, we can keep the system isolated from it.
+   This container is particularly intended for use with [rootless Docker](https://thomasweise.github.io/posts/2026-11-17-installing-rootless-docker-on-ubuntu-in-china) installations.
+   Ideally, this adds several layers of protection for people such as myself who are new to AI and who are bound to making mistakes.
+   However, by isolating the AI agent from our system, the chance that, e.g., other data is accidentally destroyed or that the system configuration is messed up should be relatively small. 
+2. By putting WorkBuddy into a container, we can develop images where all the software and tools that WorkBuddy needs are installed together in a consistent image.
+   For example, in [`workbuddy_cs`](https://thomasweise.github.io/workbuddy_cs), we put a computer science pipeline on top this plain installation.
+   Without the container, we would need to install many additional tools into our productive system.
+   With the container, the setup and maintenance should become easier.
 
 **Notice:** I am totally new to using AI tools.
 Therefore, this is really a very very experimental setup.
