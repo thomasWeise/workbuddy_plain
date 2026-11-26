@@ -33,10 +33,16 @@ You can either run this image via the provided script or manually.
 Either way, after starting the container, you can log in as described in [Section&nbsp;3.1](#31-logging-in).
 After that, you can use WorkBuddy as discussed in [Section&nbsp;3.2](#32-using-workbuddy).
 
+**Connection Issues:**
+If your internet connection is unstable, it may take a few attempts to download the image.
+The image is not small.
+This download issue only occurs during the first launch of the image&nbsp;(or if you update it later on).
+If you experience connection issues, you can combine the [script-based execution](#21-run-it-via-provided-script) with our [`tryForever.sh`](https://thomasweise.github.io/posts/2026-03-09-repeating-until-success-linux) shell script.
+
+
 ### 2.1. Run it via provided Script
 Under Ubuntu Linux, you can run the container with script [`workbuddy_plain_run.sh`](https://thomasweise.github.io/workbuddy_plain/workbuddy_plain_run.sh).
 If the container image is not yet downloaded to your machine, this script will automatically download it.
-(If your internet connection is unstable, this may take a few attempts, because the image is not small.)
 This script will take three optional parameters:
 
 - The directory to mount into WorkBuddy, by default `"/tmp/workbuddy"`.
@@ -110,14 +116,31 @@ Here I instruct WorkBuddy to create a simple Python file, run it, store its outp
 
 <img alt="Example, Step 2." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_2.png" style="width:50%;border:2px solid black;border-radius:8px" />
 
-This indeed succeeds.
+This indeed succeeds&hellip;
 
 <img alt="Example, Step 3." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" />
 
-And the files appear indeed in the shared folder.
+&hellip;and the files appear indeed in the shared folder.
 
 
-## 4. License
+## 4. Additional Notes
+It turns out that WorkBuddy in a working setup uses a sandbox client to execute shell commands.
+This sandbox client seems to override the address space limit (`RLIMIT_AS`) to 4&nbsp;GB.
+This causes some tools to fail.
+For example, you cannot run [Lean](https://lean-lang.org) or [Java](https://openjdk.org).
+Not because these tools would actually use that much memory.
+But just because they reserve such an address range, seemingly.
+
+This is quite annoying.
+Normally, you could prevent this behavior by setting the environment variable `WORKBUDDY_ENABLE_LINUX_SANDBOX_CLI=0`.
+It turns out, however, that WorkBuddy ignores and overrides this variable.
+Therefore, we have to patch the file `/opt/WorkBuddy/resources/app.asar` on a binary level after installing WorkBuddy.
+This way, we can disable the CLI sandbox.
+Since we are inside a Docker container, this should be OK.
+It is a bit dodgy, though, and whether the patch works or not may change during upgrades.
+
+
+## 5. License
 Copyright (C) 2026  [Thomas Weise](https://thomasweise.github.io) (汤卫思教授)
 
 Dr. [Thomas Weise](https://thomasweise.github.io) (see [Contact](#12-contact)) holds the copyright of these scripts.
@@ -135,7 +158,7 @@ If not, see <https://www.gnu.org/licenses/>.
 **If you feel that this repository or image infringes any of your property rights, please contact me.**
 
 
-## 5. Contact
+## 6. Contact
 If you have any questions or suggestions, please contact
 Prof. Dr. [Thomas Weise](https://thomasweise.github.io) (汤卫思教授) of the 
 School of Artificial Intelligence and Big Data ([人工智能与大数据学院](http://www.hfuu.edu.cn/aibd)) at

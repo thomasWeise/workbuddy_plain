@@ -29,8 +29,10 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository }}
 
-      - name: Download WorkBuddy.deb
-        run: ./workbuddy_download.sh
+      - name: Download WorkBuddy.deb and firefox.tar.xz
+        run: |
+          ./workbuddy_download.sh
+          ./firefox_download.sh
 
       - name: Build and Push Docker image
         uses: docker/build-push-action@v7.4.0

@@ -48,8 +48,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download WorkBuddy.deb
-        run: ./workbuddy_download.sh
+      - name: Download WorkBuddy.deb and firefox.tar.xz
+        run: |
+          ./workbuddy_download.sh
+          ./firefox_download.sh
 
       - name: Build Docker image without Pushing
         uses: docker/build-push-action@v7.4.0
