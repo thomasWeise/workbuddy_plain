@@ -27,21 +27,7 @@ rm -f /run/dbus/pid
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Launching dbus-daemon."
 dbus-daemon --system --fork
 
-echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Making desktop sessions (1)."
-dbus-send --session \
-  --dest=org.freedesktop.portal.Desktop \
-  --type=method_call --print-reply \
-  /org/freedesktop/portal/desktop \
-  org.freedesktop.DBus.Peer.Ping
-
-echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Making desktop sessions (2)."
-dbus-send --session \
-  --dest=org.freedesktop.impl.portal.desktop.gtk \
-  --type=method_call --print-reply \
-  /org/freedesktop/impl/portal/desktop/gtk \
-  org.freedesktop.DBus.Peer.Ping
-
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Launching session and executing '$inner'."
-su user -c "dbus-run-session -- ${inner}"
+su user -c "GLYCIN_DISABLE_SANDBOX=i-know-the-risks dbus-run-session -- ${inner}"
 
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Session has terminated."

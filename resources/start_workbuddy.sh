@@ -15,6 +15,20 @@ echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Set XDG_RUNTIME_DIR to $XDG_RUNTIME_DIR."
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Launching dunst in parallel."
 nohup dunst > /dev/null 2>&1 &
 
+echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Making desktop sessions (1)."
+dbus-send --session \
+  --dest=org.freedesktop.portal.Desktop \
+  --type=method_call --print-reply \
+  /org/freedesktop/portal/desktop \
+  org.freedesktop.DBus.Peer.Ping
+
+echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Making desktop sessions (2)."
+dbus-send --session \
+  --dest=org.freedesktop.impl.portal.desktop.gtk \
+  --type=method_call --print-reply \
+  /org/freedesktop/impl/portal/desktop/gtk \
+  org.freedesktop.DBus.Peer.Ping
+
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Launching WorkBuddy."
 "/opt/WorkBuddy/workbuddy"
 

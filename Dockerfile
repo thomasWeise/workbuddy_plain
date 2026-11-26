@@ -10,8 +10,11 @@ COPY resources/start_session.sh /usr/local/bin/start_session.sh
 
 RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
     --mount=type=bind,source=firefox.tar.xz,target=/tmp/firefox.tar.xz \
+    --mount=type=bind,source=resources/install_dbus.sh,target=/tmp/install_dbus.sh \
     --mount=type=bind,source=resources/workbuddy_cli_sandbox_patch.py,target=/tmp/workbuddy_cli_sandbox_patch.py \
-    --mount=type=bind,source=resources/setup_firefox.sh,target=/tmp/setup_firefox.sh \
+    --mount=type=bind,source=resources/install_firefox_root.sh,target=/tmp/install_firefox_root.sh \
+    --mount=type=bind,source=resources/install_firefox_user.sh,target=/tmp/install_firefox_user.sh \
+    --mount=type=bind,source=resources/install_workbuddy.sh,target=/tmp/install_workbuddy.sh \
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Welcome to building the plain WorkBuddy Image." &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): First we update the apt-cache." &&\
     apt-get -y update &&\
@@ -21,6 +24,8 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
     apt-get -y --with-new-pkgs --no-install-recommends upgrade &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now installing all packages required for WorkBuddy." &&\
 	apt-get install -y --fix-missing \
+        adwaita-icon-theme \
+        adwaita-icon-theme-full \
         dbus \
         dbus-x11 \
         desktop-file-utils \
@@ -30,14 +35,19 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
         fonts-dejavu-extra \
         fonts-noto-cjk \
 		fuse \
+        hicolor-icon-theme \
 		libasound2t64 \
         libcanberra-gtk3-module \
 		libgbm1 \
 		libdrm2 \
 		libfuse2 \
+        libgdk-pixbuf-2.0-0 \
+        libgdk-pixbuf2.0-bin \
 		libgtk-3-0 \
 		libnotify4 \
 		libnss3 \
+        librsvg2-2 \
+        librsvg2-common \
 		libsecret-1-0 \
 		libxcb-dri3-0 \
 		libxcomposite1 \
@@ -45,6 +55,7 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
 		libxrandr2 \
 		libxss1 \
         libxt6 \
+        shared-mime-info \
         wget \
         xdg-desktop-portal \
         xdg-desktop-portal-gtk \
@@ -54,55 +65,21 @@ RUN --mount=type=bind,source=WorkBuddy.deb,target=/tmp/WorkBuddy.deb \
     apt-get -y clean &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Deleting useless cached files." &&\
 	rm -rf /var/cache/apt/archives/ &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Unpacking Firefox browser." &&\
-    tar xf /tmp/firefox.tar.xz -C /opt/ && \
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Setting up links." &&\
-    export __browser="/usr/local/bin/firefox" &&\
-    ln -s /opt/firefox/firefox "${__browser}" && \
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now making '${__browser}' the default browser." &&\
-    update-alternatives --install /usr/bin/x-www-browser x-www-browser "${__browser}" 100 && \
-    update-alternatives --set x-www-browser "${__browser}" && \
-    update-alternatives --install /usr/bin/www-browser www-browser "${__browser}" 100 && \
-    update-alternatives --set www-browser "${__browser}" && \
-    update-alternatives --install /usr/bin/gnome-www-browser gnome-www-browser "${__browser}" 100 && \
-    update-alternatives --set gnome-www-browser "${__browser}" &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating desktop entry." &&\
-    echo '[Desktop Entry]' > /usr/share/applications/firefox.desktop && \
-    echo 'Name=Firefox' >> /usr/share/applications/firefox.desktop && \
-    echo "Exec=${__browser} %u" >> /usr/share/applications/firefox.desktop && \
-    echo 'Type=Application' >> /usr/share/applications/firefox.desktop && \
-    echo 'MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;' >> /usr/share/applications/firefox.desktop &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Updating MIME database." &&\
-    update-desktop-database &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating dbus directory." &&\
-    mkdir -p /var/run/dbus &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now updating fonts cache, so that WorkBuddy finds the Chinese fonts." &&\
     fc-cache -fv &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now installing WorkBuddy." &&\
-    dpkg -i /tmp/WorkBuddy.deb &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Enabling the Chrome Sandbox used by WorkBuddy (1)." &&\
-	chown root:root /opt/WorkBuddy/chrome-sandbox &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Enabling the Chrome Sandbox used by WorkBuddy (2)." &&\
-	chmod 4755 /opt/WorkBuddy/chrome-sandbox &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Enabling the Chrome Sandbox used by WorkBuddy (3)." &&\
-	echo "kernel.unprivileged_userns_clone=1" | tee /etc/sysctl.d/99-userns.conf &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now patching WorkBuddy binary to not use sandbox-cli, because otherwise some tools cannot be used." &&\
-    python3 /tmp/workbuddy_cli_sandbox_patch.py &&\
+    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Invoking Firefox installer." &&\
+    /bin/sh /tmp/install_firefox_root.sh &&\
+    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Invoking WorkBuddy installing." &&\
+    /bin/sh /tmp/install_workbuddy.sh &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating the plain user." &&\
     useradd -m -s /bin/bash user &&\
-    export USER_ID="$(id -u user)" &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): User has user ID $USER_ID." &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Creating the dbus directories." &&\
-    mkdir -p "/run/user/$USER_ID" &&\
-    mkdir -p "/run/user/$USER_ID/dconf" &&\
-    chown -R user:user "/run/user/$USER_ID" &&\
-    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Setting appropriate permissions." &&\
-    chmod -R 700 "/run/user/$USER_ID" &&\
+    echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Invoking dbus installer." &&\
+    /bin/sh /tmp/install_dbus.sh &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Making start scripts executable." &&\
     chmod +x /usr/local/bin/start_workbuddy.sh &&\
     chmod +x /usr/local/bin/start_session.sh &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Setting up Firefox for user account." &&\
-    su user -c "/bin/sh /tmp/setup_firefox.sh" &&\
+    su user -c "/bin/sh /tmp/install_firefox_user.sh" &&\
     echo "$(date +'%0Y-%0m-%0d %0R:%0S'): All is done, we built the image workbuddy_plain."
 
 # This is needed so that we can share the display and actually start the GUI.
@@ -110,6 +87,7 @@ ENV DISPLAY=:0
 ENV GDK_BACKEND=x11
 ENV XDG_SESSION_TYPE=x11
 ENV XDG_CURRENT_DESKTOP=GNOME
+ENV GDK_PIXBUF_MODULEDIR=/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 
 # This is need to allow WorkBuddy to execute commands outside the CLI sandbox.
 # Without this and the patch that we apply to the binaries, you cannot run LEAN

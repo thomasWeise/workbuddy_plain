@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -
 
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): We set up Firefox so that it does not bother us with dialogs."
 

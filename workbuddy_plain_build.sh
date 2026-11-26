@@ -47,7 +47,6 @@ docker image rm workbuddy_plain || true
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): Now we build the plain image."
 docker build \
   --progress=plain \
-  --add-host=update.codebuddy.cn:127.0.0.1 \
   -t workbuddy_plain .
 
 echo "$(date +'%0Y-%0m-%0d %0R:%0S'): All done."
