@@ -88,37 +88,37 @@ When you start the container, you first need to log in.
 For this, you should ideally have a [WeChat](https://www.wechat.com/en) account.
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_1.png" style="width:50%;border:2px solid black;border-radius:8px" alt='The log in window appears. You click "Sign in" in the login screen.' />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_1.png" style="width:80%;border:2px solid black;border-radius:8px" alt='The log in window appears. You click "Sign in" in the login screen.' />
 <figcaption>The log in window appears. You click "Sign in" in the login screen.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_2.png" style="width:50%;border:2px solid black;border-radius:8px" alt="After the click, it may take a second until the container-internal browser pops up." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_2.png" style="width:80%;border:2px solid black;border-radius:8px" alt="After the click, it may take a second until the container-internal browser pops up." />
 <figcaption>After the click, it may take a second until the container-internal browser pops up.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt=">It shows you a WeChat confirmation QR-code&nbsp;(here blotted out by the gray rectangle)." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_3.png" style="width:80%;border:2px solid black;border-radius:8px" alt=">It shows you a WeChat confirmation QR-code&nbsp;(here blotted out by the gray rectangle)." />
 <figcaption>It shows you a <a href="https://www.wechat.com/en">WeChat</a> confirmation QR-code&nbsp;(here blotted out by the gray rectangle).</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_4.png" style="width:50%;border:2px solid black;border-radius:8px" alt="Using WeChat on your phone, you scan this QR code&hellip;" />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_4.png" style="width:80%;border:2px solid black;border-radius:8px" alt="Using WeChat on your phone, you scan this QR code&hellip;" />
 <figcaption>Using <a href="https://www.wechat.com/en">WeChat</a> on your phone, you scan this QR code&hellip;</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_5.png" style="width:50%;border:2px solid black;border-radius:8px" alt="&hellip;and allow it to use your information." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_5.png" style="width:80%;border:2px solid black;border-radius:8px" alt="&hellip;and allow it to use your information." />
 <figcaption>&hellip;and allow it to use your information.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_6.png" style="width:50%;border:2px solid black;border-radius:8px" alt="The browser will change to a confirmation. After the browser content has changed, you can close it." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_6.png" style="width:80%;border:2px solid black;border-radius:8px" alt="The browser will change to a confirmation. After the browser content has changed, you can close it." />
 <figcaption>The browser will change to a confirmation. After the browser content has changed, you can close it.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_7.png" style="width:50%;border:2px solid black;border-radius:8px" alt="You are now logged into WorkBuddy." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_7.png" style="width:80%;border:2px solid black;border-radius:8px" alt="You are now logged into WorkBuddy." />
 <figcaption>You are now logged into WorkBuddy.</figcaption>
 </figure>
 
@@ -127,27 +127,27 @@ For this, you should ideally have a [WeChat](https://www.wechat.com/en) account.
 Now you can now use WorkBuddy.
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_1.png" style="width:50%;border:2px solid black;border-radius:8px" alt="Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the mounted folder, and set all permissions to the generated files so that I can edit them."/>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_1.png" style="width:80%;border:2px solid black;border-radius:8px" alt="Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the mounted folder, and set all permissions to the generated files so that I can edit them."/>
 <figcaption>Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the mounted folder, and set all permissions to the generated files so that I can edit them.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_2.png" style="width:50%;border:2px solid black;border-radius:8px" alt="WorkBuddy begins to work." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_2.png" style="width:80%;border:2px solid black;border-radius:8px" alt="WorkBuddy begins to work." />
 <figcaption>WorkBuddy begins to work.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt="It shows me the contents of the file it created." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:80%;border:2px solid black;border-radius:8px" alt="It shows me the contents of the file it created." />
 <figcaption>It shows me the contents of the file it created.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_4.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And it explains what it did." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_4.png" style="width:80%;border:2px solid black;border-radius:8px" alt="And it explains what it did." />
 <figcaption>And it explains what it did.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_5.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And the files appear indeed in the mounted folder." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_5.png" style="width:80%;border:2px solid black;border-radius:8px" alt="And the files appear indeed in the mounted folder." />
 <figcaption>And the files appear indeed in the mounted folder.</figcaption>
 </figure>
 
