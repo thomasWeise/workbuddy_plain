@@ -127,8 +127,8 @@ For this, you should ideally have a [WeChat](https://www.wechat.com/en) account.
 Now you can now use WorkBuddy.
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_1.png" style="width:50%;border:2px solid black;border-radius:8px" alt="Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the shared folder, and set all permissions to the generated files so that I can edit them."/>
-<figcaption>Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the shared folder, and set all permissions to the generated files so that I can edit them.</figcaption>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_1.png" style="width:50%;border:2px solid black;border-radius:8px" alt="Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the mounted folder, and set all permissions to the generated files so that I can edit them."/>
+<figcaption>Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the mounted folder, and set all permissions to the generated files so that I can edit them.</figcaption>
 </figure>
 
 <figure>
@@ -147,8 +147,8 @@ Now you can now use WorkBuddy.
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_5.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And the files appear indeed in the shared folder." />
-<figcaption>And the files appear indeed in the shared folder.</figcaption>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_5.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And the files appear indeed in the mounted folder." />
+<figcaption>And the files appear indeed in the mounted folder.</figcaption>
 </figure>
 
 
