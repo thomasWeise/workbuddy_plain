@@ -73,6 +73,7 @@ docker run -it --rm \
   --name workbuddy \
   --network host \
   --cap-add SYS_ADMIN \
+  --add-host=update.codebuddy.cn:127.0.0.1 \
   -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /path/to/folder/you/want/to/mount/into/image:/home/user/workbuddy-data \
@@ -83,44 +84,72 @@ docker run -it --rm \
 After you have started the container as described above, a WorkBuddy window will pop up.
 
 ### 3.1. Logging In
-First, you need to log in.
-Ideally, you have a WeChat account already, which makes this very easy:
+When you start the container, you first need to log in.
+For this, you should ideally have a [WeChat](https://www.wechat.com/en) account.
 
-<img alt="The login screen." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_1.png" style="width:50%;border:2px solid black;border-radius:8px" />
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_1.png" style="width:50%;border:2px solid black;border-radius:8px" alt='The log in window appears. You click "Sign in" in the login screen.' />
+<figcaption>The log in window appears. You click "Sign in" in the login screen.</figcaption>
+</figure>
 
-You click "Sign in" in the login screen.
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_2.png" style="width:50%;border:2px solid black;border-radius:8px" alt="After the click, it may take a second until the container-internal browser pops up." />
+<figcaption>After the click, it may take a second until the container-internal browser pops up.</figcaption>
+</figure>
 
-<img alt="Copy link." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_2.png" style="width:50%;border:2px solid black;border-radius:8px" />
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt=">It shows you a WeChat confirmation QR-code&nbsp;(here blotted out by the gray rectangle)." />
+<figcaption>It shows you a [WeChat](https://www.wechat.com/en) confirmation QR-code&nbsp;(here blotted out by the gray rectangle).</figcaption>
+</figure>
 
-Then you can copy a login link.
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_4.png" style="width:50%;border:2px solid black;border-radius:8px" alt="Using WeChat on your phone, you scan this QR code&hellip;" />
+<figcaption>Using [WeChat](https://www.wechat.com/en) on your phone, you scan this QR code&hellip;</figcaption>
+</figure>
 
-<img alt="Copy link." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_3.png" style="width:50%;border:2px solid black;border-radius:8px" />
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_5.png" style="width:50%;border:2px solid black;border-radius:8px" alt="&hellip;and allow it to use your information." />
+<figcaption>&hellip;and allow it to use your information.</figcaption>
+</figure>
 
-You click "Copy Login Link".
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_6.png" style="width:50%;border:2px solid black;border-radius:8px" alt="The browser will change to a confirmation. After the browser content has changed, you can close it." />
+<figcaption>The browser will change to a confirmation. After the browser content has changed, you can close it.</figcaption>
+</figure>
 
-<img alt="Paste login link." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_4.png" style="width:50%;border:2px solid black;border-radius:8px" />
-
-You can paste login link in your browser and follow the instructions.
-
-<img alt="Log in." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_5.png" style="width:50%;border:2px solid black;border-radius:8px" />
-
-This gets you logged in.
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_7.png" style="width:50%;border:2px solid black;border-radius:8px" alt="You are now logged into WorkBuddy." />
+<figcaption>You are now logged into WorkBuddy.</figcaption>
+</figure>
 
 
 ### 3.2. Using WorkBuddy
 Now you can now use WorkBuddy.
 
-<img alt="Example Step 1." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_1.png" style="width:50%;border:2px solid black;border-radius:8px" />
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_1.png" style="width:50%;border:2px solid black;border-radius:8px" alt="Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the shared folder, and set all permissions to the generated files so that I can edit them."/>
+<figcaption>Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the shared folder, and set all permissions to the generated files so that I can edit them.</figcaption>
+</figure>
 
-Here I instruct WorkBuddy to create a simple Python file, run it, store its output in the shared folder, and set all permissions to the generated files so that I can edit them.
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_2.png" style="width:50%;border:2px solid black;border-radius:8px" alt="WorkBuddy begins to work." />
+<figcaption>WorkBuddy begins to work.</figcaption>
+</figure>
 
-<img alt="Example, Step 2." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_2.png" style="width:50%;border:2px solid black;border-radius:8px" />
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt="It shows me the contents of the file it created." />
+<figcaption>It shows me the contents of the file it created.</figcaption>
+</figure>
 
-This indeed succeeds&hellip;
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And it explains what it did." />
+<figcaption>And it explains what it did.</figcaption>
+</figure>
 
-<img alt="Example, Step 3." src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" />
-
-&hellip;and the files appear indeed in the shared folder.
+<figure>
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And the files appear indeed in the shared folder." />
+<figcaption>And the files appear indeed in the shared folder.</figcaption>
+</figure>
 
 
 ## 4. Additional Notes
