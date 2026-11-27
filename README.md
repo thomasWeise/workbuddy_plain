@@ -168,7 +168,7 @@ Since we are inside a Docker container, this should be OK.
 It is a bit dodgy, though, and whether the patch works or not may change during upgrades.
 
 Also, in order to make things such as the "Save As"-dialog work, we need to run the internal dbus session with `GLYCIN_DISABLE_SANDBOX=i-know-the-risks`.
-This weakens the sandbox inside the container, but the container boundary remains.
+This weakens the sandbox inside the container.
 
 
 ## 5. License
