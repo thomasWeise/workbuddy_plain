@@ -155,13 +155,13 @@ Now you can now use WorkBuddy.
 It turns out that WorkBuddy in a working setup uses a sandbox client to execute shell commands.
 This sandbox client seems to override the address space limit (`RLIMIT_AS`) to 4&nbsp;GB.
 This causes some tools to fail.
-For example, you cannot run [Lean](https://lean-lang.org) or [Java](https://openjdk.org).
+For example, you cannot run [Lean](https://lean-lang.org) or [Java](https://openjdk.org) directly.
 Not because these tools would actually use that much memory.
 But just because they reserve such an address range, seemingly.
 
-This is quite annoying.
 Normally, you could prevent this behavior by setting the environment variable `WORKBUDDY_ENABLE_LINUX_SANDBOX_CLI=0`.
-It turns out, however, that WorkBuddy ignores and overrides this variable.
+It turns out, however, that WorkBuddy ignores and overrides this variable &mdash; which, from a security perspective, is a good idea.
+However, it is running inside a container here, so this is not a big problem.
 Therefore, we have to patch the file `/opt/WorkBuddy/resources/app.asar` on a binary level after installing WorkBuddy.
 This way, we can disable the CLI sandbox.
 Since we are inside a Docker container, this should be OK.
