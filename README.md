@@ -99,12 +99,12 @@ For this, you should ideally have a [WeChat](https://www.wechat.com/en) account.
 
 <figure>
 <img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt=">It shows you a WeChat confirmation QR-code&nbsp;(here blotted out by the gray rectangle)." />
-<figcaption>It shows you a [WeChat](https://www.wechat.com/en) confirmation QR-code&nbsp;(here blotted out by the gray rectangle).</figcaption>
+<figcaption>It shows you a <a href="https://www.wechat.com/en">WeChat</a> confirmation QR-code&nbsp;(here blotted out by the gray rectangle).</figcaption>
 </figure>
 
 <figure>
 <img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_sign_in_4.png" style="width:50%;border:2px solid black;border-radius:8px" alt="Using WeChat on your phone, you scan this QR code&hellip;" />
-<figcaption>Using [WeChat](https://www.wechat.com/en) on your phone, you scan this QR code&hellip;</figcaption>
+<figcaption>Using <a href="https://www.wechat.com/en">WeChat</a> on your phone, you scan this QR code&hellip;</figcaption>
 </figure>
 
 <figure>
