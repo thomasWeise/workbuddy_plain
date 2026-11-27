@@ -61,6 +61,7 @@ docker run -it --rm \
   --network host \
   --cap-add SYS_ADMIN \
   --add-host=update.codebuddy.cn:127.0.0.1 \
+  --add-host=update.workbuddy.cn:127.0.0.1 \
   -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v "$sharedDir":/home/user/workbuddy-data \
