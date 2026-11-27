@@ -142,12 +142,12 @@ Now you can now use WorkBuddy.
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And it explains what it did." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_4.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And it explains what it did." />
 <figcaption>And it explains what it did.</figcaption>
 </figure>
 
 <figure>
-<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_3.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And the files appear indeed in the shared folder." />
+<img src="https://thomasweise.github.io/workbuddy_plain/images/workbuddy_example_5.png" style="width:50%;border:2px solid black;border-radius:8px" alt="And the files appear indeed in the shared folder." />
 <figcaption>And the files appear indeed in the shared folder.</figcaption>
 </figure>
 
